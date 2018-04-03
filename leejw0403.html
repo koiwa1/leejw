@@ -1,0 +1,207 @@
+<!doctype html>
+<html>
+<head>
+<title>이진우</title>
+<meta charset="utf-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<style>
+body{
+  background-color: lightgray; margin:20px;
+}
+  a{color:blue;
+    text-decoration: none;
+  }
+  h1{font-size: 50px;
+    margin-top: 10px;
+
+}
+
+h2{font-size: 20px;
+  margin-top: 5px;
+
+}
+/**1번째줄 */
+#title{
+  border:1px solid gray;
+  margin:20px;
+  padding:10px;
+  background-color: lightblue;
+}
+/**2번째줄 */
+#sec_layer{
+ display:grid;
+ grid-template-columns: 23% 54% 23%;
+
+}
+
+#sec_layer ul, #article{
+  border:1px solid gray;
+  margin:20px;
+  padding:33px;
+ height:350px;
+ background-color: white;
+}
+/**3번째줄 */
+#tablelayer{
+  border:1px solid gray;
+  margin:20px;
+  padding:33px;
+  background-color: white;
+}
+/**테이블 */
+#table  {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#table td, #table th {
+    border: 1px solid #f2f2f2;
+    padding: 8px;
+}
+#table td, #table tr {
+   background-color: gray;
+   color: white;
+}
+#table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: black;
+    color: white;
+}
+
+/**footer */
+footer{
+  border:1px solid gray;
+  margin:20px;
+  padding:33px;
+ background-color: lightblue;
+}
+@media(max-width:800px){
+  #sec_layer{
+   display:block;
+  }
+}
+
+</style>
+<script>
+
+function setcolor() {
+  var newcolor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+  document.getElementById("title").style.backgroundColor = (newcolor);
+  document.getElementById("foot").style.backgroundColor = (newcolor);
+}
+
+</script>
+
+</head>
+<body>
+ <div id="grid">
+    <div onclick="setcolor(this);" id="title">
+      <h1>나는한다</h1>
+      <h2>나는 하고있다</h2>
+
+    </div>
+    <div id="sec_layer">
+      <div id="left_list">
+
+          <ul>
+            <h2>왼쪽 리스트</h2>
+            <li><a href="https://ko.wikipedia.org/wiki/HTML"target="_blank">html</a></li>
+            <li><a href="https://ko.wikipedia.org/wiki/%EC%A2%85%EC%86%8D%ED%98%95_%EC%8B%9C%ED%8A%B8#CSS1" target="_blank">CSS</a></li>
+            <li><a href="https://ko.wikipedia.org/wiki/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8" target="_blank">JavaScript</a></li>
+            <li><a href="https://ko.wikipedia.org/wiki/XML" target="_blank">xml</a></li>
+          </ul>
+      </div>
+      <div id="article">
+          <h2>CSS란 무엇인가?</h2>
+          <h3>본문</h3>
+          <p>종속형 시트 또는 캐스케이딩 스타일 시트는 마크업 언어가 실제 표시되는 방법을 기술하는 언어로,
+             HTML과 XHTML에 주로 쓰이며, XML에서도 사용할 수 있다.
+           </p>
+      </div>
+      <div id="right_list">
+            <ul>
+              <h2>  오른쪽 리스트</h2>
+              <li><a href="https://ko.wikipedia.org/wiki/HTML"target="_self" >html</a></li>
+              <li><a href="https://ko.wikipedia.org/wiki/%EC%A2%85%EC%86%8D%ED%98%95_%EC%8B%9C%ED%8A%B8#CSS1"target="_self">CSS</a></li>
+              <li><a href="https://ko.wikipedia.org/wiki/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8"target="_self">JavaScript</a></li>
+              <li><a href="https://ko.wikipedia.org/wiki/XML"target="_self">xml</a></li>
+            </ul>
+        </div>
+      </div>
+ </div>
+
+ <div id="tablelayer">
+   <table id="table" border="1">
+     <h2> 테이블</h2>
+         <tr>
+           <th >이름</th>
+           <th>죄명</th>
+           <th>형량</th>
+         </tr>
+         <tr>
+           <td>Jill</td>
+           <td>절도</td>
+           <td>1년</td>
+         </tr>
+         <tr>
+           <td>Eve</td>
+           <td>살인</td>
+           <td>사형</td>
+         </tr>
+         <tr>
+           <td>John</td>
+           <td>밀수</td>
+           <td>3년</td>
+         </tr>
+         <tr>
+           <td>Jake</td>
+           <td>밀렵</td>
+           <td>2년</td>
+         </tr>
+      <br>
+      <div>
+                    이름 :<input type="text" name="fname" id="fname">
+                    죄명 :<input type="text" name="lname" id="lname">
+                    형량 :<input type="text" name="age" id="age">
+
+                    <button onclick="addHtmlTableRow();">Add</button>
+                    <button onclick="removeSelectedRow();">Remove</button>
+        </div>
+       <br>
+
+ </table>
+</div>
+<script>
+
+function addHtmlTableRow()
+            {
+                var newRow = table.insertRow(table.length),
+                    cell1 = newRow.insertCell(0),
+                    cell2 = newRow.insertCell(1),
+                    cell3 = newRow.insertCell(2),
+                    fname = document.getElementById("fname").value,
+                    lname = document.getElementById("lname").value,
+                    age = document.getElementById("age").value;
+
+                cell1.innerHTML = fname;
+                cell2.innerHTML = lname;
+                cell3.innerHTML = age;
+
+            }
+
+            function removeSelectedRow()
+            { if(table.rows.length > 1)
+
+              document.getElementById("table").deleteRow(-1);
+
+          }
+          </script>
+  <footer id="foot">
+    <h2>신나는 코딩교실</h2>
+    <p>신난다</p>
+  </footer>
+</body>
+</html>
