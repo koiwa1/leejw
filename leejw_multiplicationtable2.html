@@ -1,0 +1,46 @@
+<html>
+<head>
+
+<meta  charset="utf-8">
+<title>Multiplicationtable</title>
+</head>
+<body>
+
+
+<script>
+
+function multiple(){
+
+	var result = '',
+		row = document.getElementById("row").value,
+	  col = document.getElementById("col").value;
+
+
+		for(var i=1; i<= row; i++){
+
+			for(var j=1; j<= col; j++){
+
+				result += '['+ j + ' * ' + i + ' = ' + j*i +']';
+			}
+
+			document.getElementById("result").innerHTML = result ;
+
+		}
+
+}
+
+
+</script>
+<form>
+
+</form>
+<div>
+						row :<input type="number" name="row" id="row">
+						col :<input type="number" name="col" id="col">
+
+							<button onclick="multiple();">생성</button>
+<p id="result"></p>
+</form>
+	</div>
+
+</body>
